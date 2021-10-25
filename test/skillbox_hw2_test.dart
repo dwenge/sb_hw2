@@ -69,18 +69,35 @@ void main() {
   });
 
   group('Task 5', () {
-    var lines = <String>[
-      'one, two, cat, three, four, dog, zero',
-      'five, beer, six, both',
-      'seven, every, eight, nine, next',
-    ];
-    expect(
-      NumberParser(lines).parse(),
-      [
-        [1, 2, 3, 4, 0],
-        [5, 6],
-        [7, 8, 9],
-      ],
-    );
+    test('Number Parser', () {
+      expect(
+        NumberParser([
+          'one, two, cat, three, four, dog, zero',
+          'five, beer, six, both',
+          'seven, every, eight, nine, next',
+        ]).parse(),
+        [
+          [1, 2, 3, 4, 0],
+          [5, 6],
+          [7, 8, 9],
+        ],
+      );
+
+      expect(
+        NumberParser([
+          'dog, cat',
+          'beer, both',
+        ]).parse(),
+        [
+          <int>{},
+          <int>{},
+        ],
+      );
+
+      expect(
+        NumberParser([]).parse(),
+        [],
+      );
+    });
   });
 }
