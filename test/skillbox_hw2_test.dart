@@ -100,4 +100,20 @@ void main() {
       );
     });
   });
+
+  group('Task 6', () {
+    test('distance', () {
+      expect(Point.zero().distanceTo(Point(0, 0, 5)), 5);
+    });
+
+    test('area triangle', () {
+      expect(
+        Point.zero().areaTriangle(
+          Point(0, 5, 0),
+          Point(5, 5, 0),
+        ),
+        12.5,
+      );
+    });
+  });
 }
