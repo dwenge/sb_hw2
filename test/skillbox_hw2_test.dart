@@ -1,6 +1,8 @@
 import 'package:skillbox_hw2/skillbox_hw2.dart';
 import 'package:test/test.dart';
 
+import 'dart:math' as math;
+
 void main() {
   group('Task 1', () {
     setUp(() {});
@@ -114,6 +116,21 @@ void main() {
         ),
         12.5,
       );
+    });
+  });
+
+  group('Task 7', () {
+    test('sqrt', () {
+      expect(36.nthRoot(2), math.sqrt(36));
+    });
+    test('root degree = 3', () {
+      expect(27.0.nthRoot(3), math.pow(27, 1 / 3));
+    });
+    test('one', () {
+      expect(1.nthRoot(5), 1);
+    });
+    test('err', () {
+      expect(() => 0.1.nthRoot(5), throwsA((e) => e is NthRootException));
     });
   });
 }
