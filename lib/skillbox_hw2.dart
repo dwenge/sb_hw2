@@ -7,3 +7,4 @@ export 'package:skillbox_hw2/src/task4.dart';
 export 'package:skillbox_hw2/src/task5.dart';
 export 'package:skillbox_hw2/src/task6.dart';
 export 'package:skillbox_hw2/src/task7.dart';
+export 'package:skillbox_hw2/src/task8.dart';

@@ -133,4 +133,31 @@ void main() {
       expect(() => 0.1.nthRoot(5), throwsA((e) => e is NthRootException));
     });
   });
+
+  group('Task 8', () {
+    test('get mail system', () {
+      expect(AdminUser('test@yandex.ru').getMailSystem(), 'yandex.ru');
+      expect(AdminUser('this_is_for_test@bk.ru').getMailSystem(), 'bk.ru');
+    });
+
+    test('user manager', () {
+      var usr1 = GeneralUser('test1@ya.ru');
+      var usr2 = GeneralUser('test2@bk.ru');
+      var adm1 = AdminUser('admin@gmail.com');
+      var adm2 = AdminUser('admin2@mail.ru');
+
+      expect(adm1.getMailSystem(), 'gmail.com');
+
+      var um = UserManager([usr1, usr2, adm2]);
+      expect(um.length, 3);
+
+      um.add(adm1);
+      expect(um.length, 4);
+
+      um.remove(adm2);
+      expect(um.length, 3);
+
+      expect(um.emailList, {usr1.email, usr2.email, adm1.getMailSystem()});
+    });
+  });
 }
